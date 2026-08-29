@@ -1,0 +1,257 @@
+{
+  "generated_at": "2026-08-29T11:09:45+00:00",
+  "record_count": 9,
+  "records": {
+    "DEC-decision-kinds": {
+      "title": "Every record has a kind \u2014 engineering, stance, or design \u2014 set by who adjudicates it",
+      "kind": "engineering",
+      "status": "accepted",
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "human_input": false,
+      "human_crux": "",
+      "governed_by": [],
+      "depends_on": [],
+      "cluster": "DEC-decision-kinds",
+      "file": "reports/DEC-decision-kinds.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [
+        "DEC-why-has-three-layers"
+      ],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-distribution-central-mutable-method": {
+      "title": "The method is distributed as a thin skill over a central, mutable method repo",
+      "kind": "engineering",
+      "status": "accepted",
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "human_input": true,
+      "human_crux": "PS's proposal: don't cram everything into a giant skill file \u2014 point a thin skill at a fixed central location that holds the pre-written machinery, so setup is fast and improvements are made centrally and inherited by every future project.",
+      "governed_by": [],
+      "depends_on": [],
+      "cluster": null,
+      "file": "reports/DEC-distribution-central-mutable-method.md",
+      "flags": [
+        "carries_human_judgment"
+      ],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-index-is-generated": {
+      "title": "The index is generated from outbound-only edges, never hand-maintained",
+      "kind": "engineering",
+      "status": "accepted",
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "human_input": false,
+      "human_crux": "",
+      "governed_by": [
+        "DEC-record-id-scheme"
+      ],
+      "depends_on": [],
+      "cluster": "DEC-index-is-generated",
+      "file": "reports/DEC-index-is-generated.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-organizing-frame-pace-layering": {
+      "title": "Knowledge is organised by pace layering \u2014 every fact at the layer matching its rate of change",
+      "kind": "engineering",
+      "status": "accepted",
+      "binding": true,
+      "placement": "principles",
+      "areas": [
+        "method"
+      ],
+      "human_input": false,
+      "human_crux": "",
+      "governed_by": [],
+      "depends_on": [],
+      "cluster": "DEC-organizing-frame-pace-layering",
+      "file": "reports/DEC-organizing-frame-pace-layering.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [
+        "DEC-placement-by-binding-only"
+      ],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-placement-by-binding-only": {
+      "title": "The constitution is binding records only \u2014 cross-cutting-ness does not promote",
+      "kind": "engineering",
+      "status": "accepted",
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "human_input": false,
+      "human_crux": "",
+      "governed_by": [
+        "DEC-organizing-frame-pace-layering"
+      ],
+      "depends_on": [],
+      "cluster": "DEC-organizing-frame-pace-layering",
+      "file": "reports/DEC-placement-by-binding-only.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-record-id-scheme": {
+      "title": "Record ids are permanent slugs that name the question; area is separate metadata",
+      "kind": "engineering",
+      "status": "accepted",
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "human_input": false,
+      "human_crux": "",
+      "governed_by": [],
+      "depends_on": [],
+      "cluster": "DEC-index-is-generated",
+      "file": "reports/DEC-record-id-scheme.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [
+        "DEC-index-is-generated"
+      ],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-records-stay-put": {
+      "title": "Records never move and ids never change once anything cites them",
+      "kind": "engineering",
+      "status": "accepted",
+      "binding": true,
+      "placement": "principles",
+      "areas": [
+        "method"
+      ],
+      "human_input": true,
+      "human_crux": "PS's reasoning from a real event: commit messages are immutable and already cite reports/ paths, so relocating records to a decisions/ folder would strand those citations. Physical stability over tidy foldering \u2014 and it keeps the retrofit continuous, with no visible break in how decisions were recorded.",
+      "governed_by": [],
+      "depends_on": [],
+      "cluster": null,
+      "file": "reports/DEC-records-stay-put.md",
+      "flags": [
+        "carries_human_judgment"
+      ],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-why-has-three-layers": {
+      "title": "A record's 'why' has three layers, and non-derivable human reasoning rides at the top",
+      "kind": "engineering",
+      "status": "accepted",
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "human_input": true,
+      "human_crux": "PS's core addition: capture the human/subjective reasoning a machine cannot re-derive \u2014 instinct, a market read, an org constraint \u2014 and surface it high, so an agent won't confidently re-derive a decision whose real driver was human judgment. Machine logic is the re-derivable part; the human part is the scarce one.",
+      "governed_by": [],
+      "depends_on": [],
+      "cluster": "DEC-decision-kinds",
+      "file": "reports/DEC-why-has-three-layers.md",
+      "flags": [
+        "carries_human_judgment"
+      ],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-why-record-decisions": {
+      "title": "Why a repo keeps a decision trail at all",
+      "kind": "engineering",
+      "status": "accepted",
+      "binding": true,
+      "placement": "principles",
+      "areas": [
+        "method"
+      ],
+      "human_input": true,
+      "human_crux": "PS's reasons for wanting this: stop re-litigating cleared decisions; be able to overturn only after reading the whole trail; let any agent avoid failed paths and pick up promising ones; stop re-researching in future projects and depend on internal resources over the web; and build specificity on contested topics by writing the reasoning down.",
+      "governed_by": [],
+      "depends_on": [],
+      "cluster": null,
+      "file": "reports/DEC-why-record-decisions.md",
+      "flags": [
+        "carries_human_judgment"
+      ],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    }
+  },
+  "queues": {
+    "principles": [
+      "DEC-organizing-frame-pace-layering",
+      "DEC-records-stay-put",
+      "DEC-why-record-decisions"
+    ],
+    "by_area": {
+      "method": [
+        "DEC-decision-kinds",
+        "DEC-distribution-central-mutable-method",
+        "DEC-index-is-generated",
+        "DEC-organizing-frame-pace-layering",
+        "DEC-placement-by-binding-only",
+        "DEC-record-id-scheme",
+        "DEC-records-stay-put",
+        "DEC-why-has-three-layers",
+        "DEC-why-record-decisions"
+      ]
+    },
+    "open_stubs": [],
+    "stances": [],
+    "contested": [],
+    "superseded": [],
+    "carries_human_judgment": [
+      "DEC-distribution-central-mutable-method",
+      "DEC-records-stay-put",
+      "DEC-why-has-three-layers",
+      "DEC-why-record-decisions"
+    ]
+  },
+  "lint": {
+    "errors": [],
+    "warnings": []
+  },
+  "input_hash": "d47c031cca0c6b2e"
+}
