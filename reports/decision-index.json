@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "record_count": 18,
+  "record_count": 20,
   "records": {
     "DEC-bootstrap-safety": {
       "title": "Bootstrap is non-destructive, atomic, and honest about failure",
@@ -36,6 +36,45 @@
       ],
       "cluster": "DEC-bootstrap-safety",
       "file": "reports/DEC-bootstrap-safety.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-chatgpt-as-custom-gpt": {
+      "title": "ChatGPT participates as a Custom GPT that queries and drafts records, not an installer",
+      "question": "chatgpt-participation",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "Cruxton reaches ChatGPT as a Custom GPT (chatgpt/CUSTOM-GPT.md): the read-before / file-on-close protocol, record format, and binding privacy rule as instructions, plus a knowledge list of reports/DECISIONS.md, reports/decision-index.json AND the reports/DEC-*.md records — with a raw-GitHub-URL path for reviewers who only read.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        "chatgpt/CUSTOM-GPT.md"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "ChatGPT gains repo write/execute access, or the Custom GPT knowledge/attachment mechanism changes"
+        }
+      ],
+      "cluster": null,
+      "file": "reports/DEC-chatgpt-as-custom-gpt.md",
       "flags": [],
       "superseded_by": [],
       "refined_by": [],
@@ -295,6 +334,7 @@
       "flags": [],
       "superseded_by": [],
       "refined_by": [
+        "DEC-openai-skill-install-path",
         "DEC-repo-is-its-own-marketplace"
       ],
       "governs": [],
@@ -388,6 +428,47 @@
       "governs": [
         "DEC-decisions-md-presentation"
       ],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-openai-skill-install-path": {
+      "title": "Codex installs Cruxton via the skill-installer from this repo's GitHub tree URL",
+      "question": "openai-skill-install-path",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "Because Cruxton ships a valid SKILL.md, the README documents installing it on OpenAI Codex with the native skill-installer against this repo's GitHub tree URL, rather than only a manual clone: `$skill-installer install https://github.com/interguption/cruxton/tree/main/skills/cruxton-decision-records`.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [
+        "DEC-distribute-as-plugin"
+      ],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        "OpenAI Codex skills docs (learn.chatgpt.com/docs/build-skills; developers.openai.com/codex/skills redirects there) + openai/skills skill-installer, verified 2026-08-29"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "Codex changes its skill-install mechanism, command, or skills directory"
+        }
+      ],
+      "cluster": "DEC-bootstrap-safety",
+      "file": "reports/DEC-openai-skill-install-path.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
       "depended_on_by": [],
       "cited_by": []
     },
@@ -776,6 +857,7 @@
     "by_area": {
       "method": [
         "DEC-bootstrap-safety",
+        "DEC-chatgpt-as-custom-gpt",
         "DEC-cross-tool-pointer",
         "DEC-decision-kinds",
         "DEC-decision-record-identity",
@@ -784,6 +866,7 @@
         "DEC-distribute-as-plugin",
         "DEC-distribution-central-mutable-method",
         "DEC-index-is-generated",
+        "DEC-openai-skill-install-path",
         "DEC-organizing-frame-pace-layering",
         "DEC-placement-by-binding-only",
         "DEC-privacy-redaction",
@@ -798,6 +881,9 @@
     "by_question": {
       "bootstrap-safety": [
         "DEC-bootstrap-safety"
+      ],
+      "chatgpt-participation": [
+        "DEC-chatgpt-as-custom-gpt"
       ],
       "cross-tool-pointer": [
         "DEC-cross-tool-pointer"
@@ -822,6 +908,9 @@
       ],
       "index-is-generated": [
         "DEC-index-is-generated"
+      ],
+      "openai-skill-install-path": [
+        "DEC-openai-skill-install-path"
       ],
       "organizing-frame-pace-layering": [
         "DEC-organizing-frame-pace-layering"
@@ -871,5 +960,5 @@
     "errors": [],
     "warnings": []
   },
-  "input_hash": "2c17665d84c73867"
+  "input_hash": "36dc97f8976a712b"
 }

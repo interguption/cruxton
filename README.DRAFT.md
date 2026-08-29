@@ -77,7 +77,20 @@ use the clone path shown below.
 </details>
 
 <details>
-<summary><b>Codex · Cursor · Gemini CLI · Copilot · other AGENTS.md tools</b></summary>
+<summary><b>Codex</b> (skill — one command)</summary>
+
+Inside Codex, install the skill straight from this repo with the built-in skill-installer:
+```
+$skill-installer install https://github.com/<your-github>/cruxton/tree/main/skills/cruxton-decision-records
+```
+Skills install to `~/.codex/skills/` (`$CODEX_HOME/skills`); **restart Codex** to pick it up. Then, in
+any repo, ask Codex to *"set up decision records here"* — it runs the bundled bootstrap. (Codex also
+reads the `AGENTS.md` pointer that bootstrap writes, so it obeys an already-instrumented repo without
+installing anything — see the AGENTS.md path below.)
+</details>
+
+<details>
+<summary><b>Cursor · Gemini CLI · Copilot · Windsurf · other AGENTS.md tools</b></summary>
 
 ```
 git clone https://github.com/<your-github>/cruxton
@@ -98,8 +111,10 @@ then upload it in **Settings → Features → Skills**. (Pro / Max / Team / Ente
 <summary><b>ChatGPT</b> (query + author records)</summary>
 
 Build a Custom GPT with the instructions in [`chatgpt/CUSTOM-GPT.md`](chatgpt/CUSTOM-GPT.md), and attach
-your repo's `reports/DECISIONS.md` + `reports/decision-index.json` as knowledge. For a reviewer who only
-wants to *read* history, pointing ChatGPT at the raw GitHub URLs of those two files is enough.
+your repo's `reports/DECISIONS.md`, `reports/decision-index.json`, **and the `reports/DEC-*.md` records**
+as knowledge — the index summarises the trail, but the per-record rationale (`## Why`, `## Human
+reasoning`) lives only in the records. For a reviewer who only wants to *read* history, pointing ChatGPT
+or Claude at the raw GitHub URLs is enough.
 </details>
 
 The bootstrap is deterministic, idempotent, and self-verifying — safe to re-run; it refreshes the
