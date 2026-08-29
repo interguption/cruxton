@@ -1,0 +1,12 @@
+name: validate-decision-records
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate records and check the committed index is current
+        run: python3 scripts/decision_index.py --check

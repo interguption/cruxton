@@ -1,5 +1,6 @@
 ---
 id:            DEC-why-has-three-layers
+question:      "why-has-three-layers"
 title:         "A record's 'why' has three layers, and non-derivable human reasoning rides at the top"
 status:        accepted
 binding:       false

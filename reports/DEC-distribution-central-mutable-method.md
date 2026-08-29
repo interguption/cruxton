@@ -1,5 +1,6 @@
 ---
 id:            DEC-distribution-central-mutable-method
+question:      "distribution-central-mutable-method"
 title:         "The method is distributed as a thin skill over a central, mutable method repo"
 status:        accepted
 binding:       false
@@ -27,6 +28,9 @@ A thin skill over a central method repo. The repo holds templates, the generator
 
 ## Human reasoning
 PS proposed pointing a thin skill at a fixed central location rather than embedding everything in skill text, so most of the work is pre-written and setup is fast. The honest caveat carried into the design: setups are snapshots (a repo upgrades by re-running bootstrap), and the central location should become a git remote to be machine-independent — a bare local folder traps mutability on one machine.
+
+## Why
+Pre-writing the machinery in one place makes setup fast and repeatable verbatim, and centralising improvements means every future repo inherits a fix without a manual port. Running the generator as a self-check makes "installed correctly" verifiable rather than assumed. A per-project copy forks and drifts (the exact failure the method exists to kill); inlining scripts in skill prose buries machinery where it can't be tested.
 
 ## Options considered
 - **A fat self-contained skill (all machinery inline).** VIABLE but unwieldy; scripts don't belong in prose.

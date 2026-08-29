@@ -1,5 +1,6 @@
 ---
 id:            DEC-decision-kinds
+question:      "decision-kinds"
 title:         "Every record has a kind — engineering, stance, or design — set by who adjudicates it"
 status:        accepted
 binding:       false

@@ -1,20 +1,126 @@
 {
-  "generated_at": "2026-08-29T11:09:45+00:00",
-  "record_count": 9,
+  "schema": 2,
+  "record_count": 16,
   "records": {
-    "DEC-decision-kinds": {
-      "title": "Every record has a kind \u2014 engineering, stance, or design \u2014 set by who adjudicates it",
+    "DEC-bootstrap-safety": {
+      "title": "Bootstrap is non-destructive, atomic, and honest about failure",
+      "question": "bootstrap-safety",
       "kind": "engineering",
       "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
       "binding": false,
       "placement": "area",
       "areas": [
         "method"
       ],
+      "decision": "Bootstrap writes only files it owns (marked cruxton-managed) or that do not yet exist; a foreign same-named file is a refused collision, not an overwrite. Writes are atomic (temp + rename), and the self-check prints SELF-CHECK PASSED only when the generator exits 0 — a build-failing record yields an honest non-zero SETUP-OK-with-errors result instead.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
       "human_input": false,
       "human_crux": "",
+      "supersedes": [],
+      "refines": [
+        "DEC-distribution-central-mutable-method"
+      ],
       "governed_by": [],
       "depends_on": [],
+      "cites": [
+        "external adversarial readiness review, 2026-08-29"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "a stronger install contract is needed, e.g. transactional rollback"
+        }
+      ],
+      "cluster": "DEC-bootstrap-safety",
+      "file": "reports/DEC-bootstrap-safety.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-cross-tool-pointer": {
+      "title": "Cruxton bets on AGENTS.md as the cross-tool agent-instruction convention",
+      "question": "cross-tool-pointer",
+      "kind": "stance",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "The bootstrap emits an AGENTS.md pointer alongside CLAUDE.md so that Codex, Cursor, Gemini CLI, Copilot, Windsurf and other agents obey the same spec — betting that AGENTS.md is the convergent cross-tool instruction convention.",
+      "confidence": "moderate",
+      "decided_on": "2026-08-29",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        "AGENTS.md adoption reporting, 2026 — Codex, Cursor, Gemini CLI, Copilot, Windsurf, Aider, Zed"
+      ],
+      "revisit": [
+        {
+          "class": "evidence",
+          "when": "AGENTS.md adoption stalls or fragments, or a rival convention becomes dominant"
+        },
+        {
+          "class": "internal",
+          "when": "a tool we target stops reading AGENTS.md"
+        }
+      ],
+      "cluster": null,
+      "file": "reports/DEC-cross-tool-pointer.md",
+      "flags": [],
+      "evidence_basis": "predictive",
+      "evidence_level": "expert-opinion",
+      "lineage": "AGENTS.md / Agentic AI Foundation",
+      "contested": true,
+      "contested_note": "Competing conventions exist — CLAUDE.md, Cursor rules, GEMINI.md — and none is a ratified standard; adoption is broad but young, and tools can change what file they read.",
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-decision-kinds": {
+      "title": "Every record has a kind — engineering, stance, or design — set by who adjudicates it",
+      "question": "decision-kinds",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "A record's kind is engineering (internal goals adjudicate), stance (external contested evidence adjudicates — unlocks required evidence_basis, evidence_level, lineage, contested), or design (product values adjudicate — requires a reversal_ritual). One question assigns it: who decides whether this is right?",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        "the Steelyard reference implementation"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "a fourth adjudicator appears that none of the three names"
+        }
+      ],
       "cluster": "DEC-decision-kinds",
       "file": "reports/DEC-decision-kinds.md",
       "flags": [],
@@ -26,47 +132,296 @@
       "depended_on_by": [],
       "cited_by": []
     },
-    "DEC-distribution-central-mutable-method": {
-      "title": "The method is distributed as a thin skill over a central, mutable method repo",
+    "DEC-decision-record-identity": {
+      "title": "An id is a permanent decision-event id; a separate question key groups a reversal chain",
+      "question": "decision-record-identity",
       "kind": "engineering",
       "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
       "binding": false,
       "placement": "area",
       "areas": [
         "method"
       ],
-      "human_input": true,
-      "human_crux": "PS's proposal: don't cram everything into a giant skill file \u2014 point a thin skill at a fixed central location that holds the pre-written machinery, so setup is fast and improvements are made centrally and inherited by every future project.",
+      "decision": "Each record's id is a permanent, unique decision-EVENT id; a separate `question` field is the stable subject key. A reversal is a new record with a new id and the same question that supersedes the old one; effective status (live vs superseded) is derived by the index, never authored.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [
+        "DEC-record-id-scheme"
+      ],
       "governed_by": [],
       "depends_on": [],
-      "cluster": null,
+      "cites": [
+        "external adversarial readiness review, 2026-08-29"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "the question/id split proves confusing or redundant in practice"
+        }
+      ],
+      "cluster": "DEC-decision-record-identity",
+      "file": "reports/DEC-decision-record-identity.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-decisions-md-presentation": {
+      "title": "The human ledger reads principles-first, decision and crux inline, live separated from superseded",
+      "question": "decisions-md-presentation",
+      "kind": "design",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "DECISIONS.md leads with the constitution (binding, live principles), shows each record's one-line decision, confidence, and human crux with a link to the record file, groups clusters and per-area views, and separates live decisions from a superseded historical trail.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [],
+      "governed_by": [
+        "DEC-organizing-frame-pace-layering",
+        "DEC-index-is-generated"
+      ],
+      "depends_on": [],
+      "cites": [
+        "external adversarial readiness review, 2026-08-29"
+      ],
+      "revisit": [
+        {
+          "class": "values",
+          "when": "reviewers report the ledger buries what matters or is hard to scan"
+        }
+      ],
+      "cluster": "DEC-decision-record-identity",
+      "file": "reports/DEC-decisions-md-presentation.md",
+      "flags": [],
+      "reversal_ritual": "Any change to the ledger's presentation must be re-rendered and swept across every generated view — DECISIONS.md, the per-area lists, and the queues — so the human and machine reads never diverge.",
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-deterministic-artifacts": {
+      "title": "Generated artifacts are deterministic and CI-checkable",
+      "question": "deterministic-artifacts",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "The generated index and ledger carry no wall-clock timestamp — their identity is the input hash — so a no-op regeneration produces no diff. A --check mode regenerates in memory and fails if the committed artifacts are stale, for CI to gate on.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [
+        "DEC-index-is-generated"
+      ],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        "external adversarial readiness review, 2026-08-29"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "a downstream consumer genuinely needs a generation timestamp"
+        }
+      ],
+      "cluster": "DEC-decision-record-identity",
+      "file": "reports/DEC-deterministic-artifacts.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-distribution-central-mutable-method": {
+      "title": "The method is distributed as a thin skill over a central, mutable method repo",
+      "question": "distribution-central-mutable-method",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "The system is packaged as a thin skill whose bootstrap runs from a central method repo that carries the machinery, templates, and genesis ledger. Improvements are made once in the method repo and flow to future setups; the method versions itself so a repo can tell what it was scaffolded from.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": true,
+      "human_crux": "PS's proposal: don't cram everything into a giant skill file — point a thin skill at a fixed central location that holds the pre-written machinery, so setup is fast and improvements are made centrally and inherited by every future project.",
+      "supersedes": [],
+      "refines": [],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        "the Steelyard reference implementation"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "the machinery outgrows a folder and wants a git-remote template with CI"
+        }
+      ],
+      "cluster": "DEC-bootstrap-safety",
       "file": "reports/DEC-distribution-central-mutable-method.md",
       "flags": [
         "carries_human_judgment"
       ],
       "superseded_by": [],
-      "refined_by": [],
+      "refined_by": [
+        "DEC-bootstrap-safety"
+      ],
       "governs": [],
       "depended_on_by": [],
       "cited_by": []
     },
     "DEC-index-is-generated": {
       "title": "The index is generated from outbound-only edges, never hand-maintained",
+      "question": "index-is-generated",
       "kind": "engineering",
       "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
       "binding": false,
       "placement": "area",
       "areas": [
         "method"
       ],
+      "decision": "Records carry only outbound edges (supersedes, refines, governed_by, depends_on, cites), authored once and frozen. All reverse edges, clusters, per-area and principle views, and staleness queues are computed by a generator/validator that is a build artifact — never a hand-written file.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
       "human_input": false,
       "human_crux": "",
+      "supersedes": [],
+      "refines": [],
       "governed_by": [
         "DEC-record-id-scheme"
       ],
       "depends_on": [],
-      "cluster": "DEC-index-is-generated",
+      "cites": [
+        "the Steelyard reference implementation"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "the index outgrows a single file and needs sharding"
+        }
+      ],
+      "cluster": "DEC-decision-record-identity",
       "file": "reports/DEC-index-is-generated.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [
+        "DEC-deterministic-artifacts",
+        "DEC-strict-validation"
+      ],
+      "governs": [
+        "DEC-decisions-md-presentation"
+      ],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-organizing-frame-pace-layering": {
+      "title": "Knowledge is organised by pace layering — every fact at the layer matching its rate of change",
+      "question": "organizing-frame-pace-layering",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": true,
+      "placement": "principles",
+      "areas": [
+        "method"
+      ],
+      "decision": "Every fact lives at exactly one layer chosen by how fast it changes (purpose > principles > decisions > runbooks > code); faster layers cite slower ones and never restate them.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        "the Steelyard reference implementation"
+      ],
+      "revisit": [
+        {
+          "class": "none",
+          "when": "the organising principle of the whole system"
+        }
+      ],
+      "cluster": "DEC-decision-record-identity",
+      "file": "reports/DEC-organizing-frame-pace-layering.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [
+        "DEC-decisions-md-presentation",
+        "DEC-placement-by-binding-only"
+      ],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-placement-by-binding-only": {
+      "title": "The constitution is binding records only — cross-cutting-ness does not promote",
+      "question": "placement-by-binding-only",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "A record joins the read-first principles view only if binding: true (an invariant the repo must never violate). Touching several areas does NOT promote a record; that is carried by its area tags and the per-area views.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [],
+      "governed_by": [
+        "DEC-organizing-frame-pace-layering"
+      ],
+      "depends_on": [],
+      "cites": [
+        "the Steelyard reference implementation"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "the binding set grows large enough to need its own sub-tiering"
+        }
+      ],
+      "cluster": "DEC-decision-record-identity",
+      "file": "reports/DEC-placement-by-binding-only.md",
       "flags": [],
       "superseded_by": [],
       "refined_by": [],
@@ -74,47 +429,38 @@
       "depended_on_by": [],
       "cited_by": []
     },
-    "DEC-organizing-frame-pace-layering": {
-      "title": "Knowledge is organised by pace layering \u2014 every fact at the layer matching its rate of change",
+    "DEC-privacy-redaction": {
+      "title": "Records never carry secrets, personal data, or verbatim private conversations",
+      "question": "privacy-redaction",
       "kind": "engineering",
       "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
       "binding": true,
       "placement": "principles",
       "areas": [
         "method"
       ],
+      "decision": "A record captures reasoning, never raw sensitive material: no secrets, credentials, keys, PII, health data, protected-class attributes, confidential third-party information, or verbatim private conversations. Sensitive human input is reduced to the decision-relevant gist; anything that needs sensitive material to understand is cited to an access-controlled location.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
       "human_input": false,
       "human_crux": "",
+      "supersedes": [],
+      "refines": [],
       "governed_by": [],
       "depends_on": [],
-      "cluster": "DEC-organizing-frame-pace-layering",
-      "file": "reports/DEC-organizing-frame-pace-layering.md",
-      "flags": [],
-      "superseded_by": [],
-      "refined_by": [],
-      "governs": [
-        "DEC-placement-by-binding-only"
+      "cites": [
+        "external adversarial readiness review, 2026-08-29"
       ],
-      "depended_on_by": [],
-      "cited_by": []
-    },
-    "DEC-placement-by-binding-only": {
-      "title": "The constitution is binding records only \u2014 cross-cutting-ness does not promote",
-      "kind": "engineering",
-      "status": "accepted",
-      "binding": false,
-      "placement": "area",
-      "areas": [
-        "method"
+      "revisit": [
+        {
+          "class": "none",
+          "when": "a committed, possibly-public trail must never leak sensitive material"
+        }
       ],
-      "human_input": false,
-      "human_crux": "",
-      "governed_by": [
-        "DEC-organizing-frame-pace-layering"
-      ],
-      "depends_on": [],
-      "cluster": "DEC-organizing-frame-pace-layering",
-      "file": "reports/DEC-placement-by-binding-only.md",
+      "cluster": null,
+      "file": "reports/DEC-privacy-redaction.md",
       "flags": [],
       "superseded_by": [],
       "refined_by": [],
@@ -124,22 +470,41 @@
     },
     "DEC-record-id-scheme": {
       "title": "Record ids are permanent slugs that name the question; area is separate metadata",
+      "question": "record-id-scheme",
       "kind": "engineering",
       "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
       "binding": false,
       "placement": "area",
       "areas": [
         "method"
       ],
+      "decision": "Each record's id is a global, permanent slug (DEC-<slug>) that names the QUESTION, never the answer. The area is separate multi-valued metadata, never baked into the id.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
       "human_input": false,
       "human_crux": "",
+      "supersedes": [],
+      "refines": [],
       "governed_by": [],
       "depends_on": [],
-      "cluster": "DEC-index-is-generated",
+      "cites": [
+        "the Steelyard reference implementation"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "slugs prove to collide semantically often enough to need a central allocator"
+        }
+      ],
+      "cluster": "DEC-decision-record-identity",
       "file": "reports/DEC-record-id-scheme.md",
       "flags": [],
       "superseded_by": [],
-      "refined_by": [],
+      "refined_by": [
+        "DEC-decision-record-identity"
+      ],
       "governs": [
         "DEC-index-is-generated"
       ],
@@ -148,17 +513,34 @@
     },
     "DEC-records-stay-put": {
       "title": "Records never move and ids never change once anything cites them",
+      "question": "records-stay-put",
       "kind": "engineering",
       "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
       "binding": true,
       "placement": "principles",
       "areas": [
         "method"
       ],
+      "decision": "A record file stays at its path and keeps its id for life. Per-area and principle organisation are DERIVED views computed by the index, never physical folders that records are relocated into.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
       "human_input": true,
-      "human_crux": "PS's reasoning from a real event: commit messages are immutable and already cite reports/ paths, so relocating records to a decisions/ folder would strand those citations. Physical stability over tidy foldering \u2014 and it keeps the retrofit continuous, with no visible break in how decisions were recorded.",
+      "human_crux": "PS's reasoning from a real event: commit messages are immutable and already cite reports/ paths, so relocating records to a decisions/ folder would strand those citations. Physical stability over tidy foldering — and it keeps the retrofit continuous, with no visible break in how decisions were recorded.",
+      "supersedes": [],
+      "refines": [],
       "governed_by": [],
       "depends_on": [],
+      "cites": [
+        "the Steelyard reference implementation"
+      ],
+      "revisit": [
+        {
+          "class": "none",
+          "when": "any surface that can cite a record but not be edited later makes its path load-bearing forever"
+        }
+      ],
       "cluster": null,
       "file": "reports/DEC-records-stay-put.md",
       "flags": [
@@ -170,19 +552,81 @@
       "depended_on_by": [],
       "cited_by": []
     },
-    "DEC-why-has-three-layers": {
-      "title": "A record's 'why' has three layers, and non-derivable human reasoning rides at the top",
+    "DEC-strict-validation": {
+      "title": "The generator enforces the whole record contract, not just edges",
+      "question": "strict-validation",
       "kind": "engineering",
       "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
       "binding": false,
       "placement": "area",
       "areas": [
         "method"
       ],
+      "decision": "The generator validates every record against the full contract — required fields and types, enum values, filename==id, required body sections, human_input/human_crux consistency, kind-gated fields — surfaces malformed files instead of silently skipping them, and fails the build on any violation.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
       "human_input": true,
-      "human_crux": "PS's core addition: capture the human/subjective reasoning a machine cannot re-derive \u2014 instinct, a market read, an org constraint \u2014 and surface it high, so an agent won't confidently re-derive a decision whose real driver was human judgment. Machine logic is the re-derivable part; the human part is the scarce one.",
+      "human_crux": "PS commissioned an external adversarial review before publishing and, given the findings, chose to harden Cruxton into a trustworthy v1.0.0 rather than ship a strong prototype as a preview.",
+      "supersedes": [],
+      "refines": [
+        "DEC-index-is-generated"
+      ],
       "governed_by": [],
       "depends_on": [],
+      "cites": [
+        "external adversarial readiness review, 2026-08-29"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "a check proves too strict in real use, or the field set changes"
+        }
+      ],
+      "cluster": "DEC-decision-record-identity",
+      "file": "reports/DEC-strict-validation.md",
+      "flags": [
+        "carries_human_judgment"
+      ],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-why-has-three-layers": {
+      "title": "A record's 'why' has three layers, and non-derivable human reasoning rides at the top",
+      "question": "why-has-three-layers",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "Reasoning is captured at three depths by how re-derivable it is: a one-line human_crux plus a human_input flag in the index (read every time); a Human reasoning body section (read on open); and a deep Reasoning provenance section tagging each material claim by source (read on demand). Provenance types: llm-expertise, internal-finding, external-research, provided-data, human-expertise, human-instinct, human-constraint.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": true,
+      "human_crux": "PS's core addition: capture the human/subjective reasoning a machine cannot re-derive — instinct, a market read, an org constraint — and surface it high, so an agent won't confidently re-derive a decision whose real driver was human judgment. Machine logic is the re-derivable part; the human part is the scarce one.",
+      "supersedes": [],
+      "refines": [
+        "DEC-decision-kinds"
+      ],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        "the Steelyard reference implementation"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "the provenance taxonomy proves to miss a source class"
+        }
+      ],
       "cluster": "DEC-decision-kinds",
       "file": "reports/DEC-why-has-three-layers.md",
       "flags": [
@@ -196,17 +640,34 @@
     },
     "DEC-why-record-decisions": {
       "title": "Why a repo keeps a decision trail at all",
+      "question": "why-record-decisions",
       "kind": "engineering",
       "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
       "binding": true,
       "placement": "principles",
       "areas": [
         "method"
       ],
+      "decision": "A repo records its non-trivial decisions as a durable trail so no one re-runs a settled thought process, an overturn can read the full prior reasoning, agents avoid dead ends and find under-explored paths, and the reasoning survives the conversation it was made in.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
       "human_input": true,
       "human_crux": "PS's reasons for wanting this: stop re-litigating cleared decisions; be able to overturn only after reading the whole trail; let any agent avoid failed paths and pick up promising ones; stop re-researching in future projects and depend on internal resources over the web; and build specificity on contested topics by writing the reasoning down.",
+      "supersedes": [],
+      "refines": [],
       "governed_by": [],
       "depends_on": [],
+      "cites": [
+        "the Steelyard reference implementation"
+      ],
+      "revisit": [
+        {
+          "class": "none",
+          "when": "this is the method's premise"
+        }
+      ],
       "cluster": null,
       "file": "reports/DEC-why-record-decisions.md",
       "flags": [
@@ -222,29 +683,92 @@
   "queues": {
     "principles": [
       "DEC-organizing-frame-pace-layering",
+      "DEC-privacy-redaction",
       "DEC-records-stay-put",
       "DEC-why-record-decisions"
     ],
     "by_area": {
       "method": [
+        "DEC-bootstrap-safety",
+        "DEC-cross-tool-pointer",
         "DEC-decision-kinds",
+        "DEC-decision-record-identity",
+        "DEC-decisions-md-presentation",
+        "DEC-deterministic-artifacts",
         "DEC-distribution-central-mutable-method",
         "DEC-index-is-generated",
         "DEC-organizing-frame-pace-layering",
         "DEC-placement-by-binding-only",
+        "DEC-privacy-redaction",
         "DEC-record-id-scheme",
         "DEC-records-stay-put",
+        "DEC-strict-validation",
         "DEC-why-has-three-layers",
         "DEC-why-record-decisions"
       ]
     },
+    "by_question": {
+      "bootstrap-safety": [
+        "DEC-bootstrap-safety"
+      ],
+      "cross-tool-pointer": [
+        "DEC-cross-tool-pointer"
+      ],
+      "decision-kinds": [
+        "DEC-decision-kinds"
+      ],
+      "decision-record-identity": [
+        "DEC-decision-record-identity"
+      ],
+      "decisions-md-presentation": [
+        "DEC-decisions-md-presentation"
+      ],
+      "deterministic-artifacts": [
+        "DEC-deterministic-artifacts"
+      ],
+      "distribution-central-mutable-method": [
+        "DEC-distribution-central-mutable-method"
+      ],
+      "index-is-generated": [
+        "DEC-index-is-generated"
+      ],
+      "organizing-frame-pace-layering": [
+        "DEC-organizing-frame-pace-layering"
+      ],
+      "placement-by-binding-only": [
+        "DEC-placement-by-binding-only"
+      ],
+      "privacy-redaction": [
+        "DEC-privacy-redaction"
+      ],
+      "record-id-scheme": [
+        "DEC-record-id-scheme"
+      ],
+      "records-stay-put": [
+        "DEC-records-stay-put"
+      ],
+      "strict-validation": [
+        "DEC-strict-validation"
+      ],
+      "why-has-three-layers": [
+        "DEC-why-has-three-layers"
+      ],
+      "why-record-decisions": [
+        "DEC-why-record-decisions"
+      ]
+    },
     "open_stubs": [],
-    "stances": [],
-    "contested": [],
+    "stances": [
+      "DEC-cross-tool-pointer"
+    ],
+    "contested": [
+      "DEC-cross-tool-pointer"
+    ],
     "superseded": [],
     "carries_human_judgment": [
       "DEC-distribution-central-mutable-method",
       "DEC-records-stay-put",
+      "DEC-strict-validation",
       "DEC-why-has-three-layers",
       "DEC-why-record-decisions"
     ]
@@ -253,5 +777,5 @@
     "errors": [],
     "warnings": []
   },
-  "input_hash": "d47c031cca0c6b2e"
+  "input_hash": "5e686c7f440d22b4"
 }

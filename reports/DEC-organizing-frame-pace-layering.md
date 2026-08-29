@@ -1,5 +1,6 @@
 ---
 id:            DEC-organizing-frame-pace-layering
+question:      "organizing-frame-pace-layering"
 title:         "Knowledge is organised by pace layering — every fact at the layer matching its rate of change"
 status:        accepted
 binding:       true

@@ -1,5 +1,6 @@
 ---
 id:            DEC-records-stay-put
+question:      "records-stay-put"
 title:         "Records never move and ids never change once anything cites them"
 status:        accepted
 binding:       true
@@ -27,6 +28,9 @@ Stay put. Navigation comes from the generated index (per-area and principle view
 
 ## Human reasoning
 PS hit this in practice: on the reference project a move to a `decisions/` directory was rejected precisely because commit messages already cited `reports/...` paths and can't be edited. The general rule followed: any surface that can cite a record but cannot be edited later makes the record's path and id public API — permanent. It also keeps the record trail continuous, with no before/after break in recording style.
+
+## Why
+The moment any immutable surface cites a record — a commit message, a published artifact, another record — the record's path and id become load-bearing public API. A move invalidates those references irreversibly, whereas a generated index delivers the same per-area navigability at zero citation cost. The cheap failure is a less tidy folder; the expensive one is a stranded citation that can never be repaired.
 
 ## Options considered
 - **Relocate records into per-area folders.** REJECTED (class: principle) — strands immutable citations; per-area is a derived view instead.

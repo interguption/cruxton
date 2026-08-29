@@ -1,5 +1,6 @@
 ---
 id:            DEC-record-id-scheme
+question:      "record-id-scheme"
 title:         "Record ids are permanent slugs that name the question; area is separate metadata"
 status:        accepted
 binding:       false

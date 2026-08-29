@@ -1,5 +1,6 @@
 ---
 id:            DEC-placement-by-binding-only
+question:      "placement-by-binding-only"
 title:         "The constitution is binding records only — cross-cutting-ness does not promote"
 status:        accepted
 binding:       false

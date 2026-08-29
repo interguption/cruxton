@@ -1,7 +1,7 @@
-<!-- cruxton-pointer — this repo uses Cruxton decision records. Same contract as AGENTS.md. Keep this file. -->
-# Claude Code guide — this repo records its decisions
+<!-- cruxton-pointer — this repo uses Cruxton decision records. Read by Codex, Cursor, Gemini CLI, Copilot, and other AGENTS.md-aware agents. Keep this file. -->
+# Agent guide — this repo records its decisions
 
-The contract is `instructions/DECISION-RECORDS.md`. Obey it. (Same protocol as `AGENTS.md`.)
+The contract is `instructions/DECISION-RECORDS.md`. Obey it.
 
 ## Before you change anything
 1. Read `reports/DECISIONS.md` — principles first (the constitution); it links every record.

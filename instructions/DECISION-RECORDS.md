@@ -1,7 +1,6 @@
+<!-- cruxton-method-version: 1.0.0 -->
 # Decision Records
 
-<!-- TEMPLATE. On bootstrap this becomes instructions/DECISION-RECORDS.md.
-     Replace the areas vocabulary in section 9 with this repo's own areas. -->
 
 **Status: binding.** How every decision in this repo is recorded, found, and overturned.
 Applies to every Cowork task and every Claude Code session that touches this folder.
@@ -27,6 +26,16 @@ exists to prevent.
 Concretely, a good record lets a future agent avoid a path that already failed, pick up a
 promising one that was never fully explored, and reach the same conclusion we did without
 re-researching it from scratch or re-asking a person who already answered.
+
+## 0.5 What never goes in a record
+
+Records are committed to the repo and may become public. A record captures *reasoning*, not raw
+sensitive material. **Never put in a record:** secrets, credentials, API keys or tokens; personal
+data or PII; health data; protected-class attributes; confidential third-party or business-sensitive
+information; or verbatim private conversations. When a person's input is sensitive, capture only the
+decision-relevant gist and omit the specifics. If a decision can only be understood with sensitive
+material, cite an access-controlled location rather than pasting it. Redaction is the author's
+responsibility — the generator cannot detect a leaked secret.
 
 ## 1. The layered model (pace layering)
 
@@ -75,6 +84,7 @@ else as a bare string. So lists and strings that need structure are written as J
 ```yaml
 ---
 id:            DEC-<slug>              # names the QUESTION, never the answer. Permanent. Never renamed.
+question:      "<slug>"                # STABLE subject key a reversal shares. Defaults to the id slug.
 title:         "<human title>"          # mutable; may change when the answer changes
 status:        accepted                 # proposed | accepted | superseded | rejected
 binding:       false                    # true = an invariant the repo must never violate
@@ -187,6 +197,17 @@ messages cite `reports/` paths and cannot be edited). The `title` may change; th
 not. Area is separate metadata, never baked into the id — so reshelving an area never
 orphans a citation.
 
+
+**Question key vs decision id.** The `id` is a permanent, unique decision-*event* id; `question` is
+the stable *subject* key it answers. An original record's `question` is usually its own slug. A
+**reversal** is a *new* record with a *new* id and the *same* `question` that `supersedes` the old
+one — the trail keeps both and the index derives which is live. Because two files cannot share an id,
+name a reversal by appending a revision marker to the slug (e.g. `DEC-cache-eviction` →
+`DEC-cache-eviction-r2`), keeping `question: "cache-eviction"` on both. The generator enforces that a
+`supersedes` edge joins two records with the *same* question, and that a question never has more than
+one live (accepted, un-superseded) record — the guard against two contradictory decisions sitting
+live at once.
+
 ## 5. Edges
 
 Authored (outbound): `supersedes`, `refines`, `governed_by`, `depends_on`, `cites`.
@@ -197,6 +218,11 @@ Derived by the index (never authored): `superseded_by`, `refined_by`, `governs`,
 records must cite them (`refines`/`supersedes`), so a contradiction surfaces as an edge the
 index can see rather than a silent disagreement between two live records — the exact class of
 bug that broke v1.
+
+
+**Effective status is derived.** A record is *live* when its `status` is `accepted` and nothing
+supersedes it; once superseded it stays in the trail but drops out of the live views. You never edit
+the old record to mark it dead — the index computes it.
 
 ## 6. Placement — principles and areas are derived views, not folders
 
@@ -219,10 +245,18 @@ book never moves.
 silently): open stubs, stances awaiting evidence review, contested decisions, superseded
 chains, and records that `carry_human_judgment` (so their non-derivable crux is browsable).
 
-**It also lints, and fails the build on:** a citation to a non-existent record (dangling), a
-cycle in `refines`/`supersedes`/`depends_on`, a record missing its kind-gated fields, and a
-record left as an open stub past authoring. Run it after any record change; a stale index is
-detectable from its `generated_at` + input hash.
+**It validates on every run, and fails the build (exit 1) on:** a malformed or unparseable record
+file (surfaced, never silently skipped); a filename that does not match its `id`; a missing or
+mistyped required field, a bad enum (`status`, `kind`, `confidence`, `revisit` class, evidence
+enums), a non-boolean `binding`/`human_input`, or an invalid `decided_on` date; a body missing a
+required section (`## Question`, `## Decision`, `## Why`, plus `## Human reasoning` whenever
+`human_input` is true); `human_input`/`human_crux` inconsistency; a dangling id-edge or a
+record-shaped `cites` target that does not resolve; a cycle in `refines`/`supersedes`/`depends_on`;
+a `supersedes` edge across different questions; and more than one live record for a question.
+
+Output is **deterministic** — no wall-clock in the artifacts, identity is the input hash — so a no-op
+regeneration produces no diff. Run `python3 scripts/decision_index.py --check` to verify the
+committed artifacts are current without rewriting them; CI uses this.
 
 ## 8. Rules of engagement
 
@@ -245,8 +279,7 @@ detectable from its `generated_at` + input hash.
 ## 9. This repo's layer
 
 **Areas vocabulary** (extensible — add to this list in the same commit that first uses a new
-area): the areas THIS repo actually has — e.g. `api`, `ui`, `data`, `auth`, `build`, `docs`,
-`infra`. Start with a handful; add an area in the same commit that first uses it.
+area): the areas THIS repo actually has: `method`. Add an area in the same commit that first uses it.
 
 **Where things live.** Spec: `instructions/DECISION-RECORDS.md` (this file). Records:
 `reports/DEC-*.md`. Index: `reports/decision-index.json` + `reports/DECISIONS.md`. Generator:
@@ -268,6 +301,7 @@ surface can drift from it.
 ```markdown
 ---
 id:            DEC-<slug>
+question:      "<slug>"
 title:         "<title>"
 status:        accepted
 binding:       false

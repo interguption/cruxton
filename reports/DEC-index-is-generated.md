@@ -1,5 +1,6 @@
 ---
 id:            DEC-index-is-generated
+question:      "index-is-generated"
 title:         "The index is generated from outbound-only edges, never hand-maintained"
 status:        accepted
 binding:       false
@@ -32,3 +33,5 @@ Hand-maintained bidirectional links are the Xanadu trap — every target must kn
 - **Hand-maintained backlinks in every file.** REJECTED (class: principle) — unmaintainable at scale; the exact churn to avoid.
 - **A single hand-written index file.** REJECTED — goes stale silently.
 - **Outbound edges + a generated, verified index.** CHOSEN.
+
+<!-- touch -->

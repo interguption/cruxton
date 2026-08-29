@@ -1,5 +1,6 @@
 ---
 id:            DEC-why-record-decisions
+question:      "why-record-decisions"
 title:         "Why a repo keeps a decision trail at all"
 status:        accepted
 binding:       true
