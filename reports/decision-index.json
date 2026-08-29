@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "record_count": 16,
+  "record_count": 18,
   "records": {
     "DEC-bootstrap-safety": {
       "title": "Bootstrap is non-destructive, atomic, and honest about failure",
@@ -257,6 +257,50 @@
       "depended_on_by": [],
       "cited_by": []
     },
+    "DEC-distribute-as-plugin": {
+      "title": "Cruxton ships as a Claude Code plugin with the bundle under skills/",
+      "question": "distribute-as-plugin",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "The distributable machinery (SKILL.md, bootstrap.py, METHOD-VERSION, templates/) is packaged as a Claude Code plugin under skills/cruxton-decision-records/, installable in one command; the repo's own self-governing files (scripts/decision_index.py, reports/, instructions/, CLAUDE.md, AGENTS.md) stay at root.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [
+        "DEC-distribution-central-mutable-method"
+      ],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        ".claude-plugin/plugin.json",
+        "skills/cruxton-decision-records/SKILL.md"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "Claude Code changes plugin/skill discovery, or a better one-command install path emerges"
+        }
+      ],
+      "cluster": "DEC-bootstrap-safety",
+      "file": "reports/DEC-distribute-as-plugin.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [
+        "DEC-repo-is-its-own-marketplace"
+      ],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
     "DEC-distribution-central-mutable-method": {
       "title": "The method is distributed as a thin skill over a central, mutable method repo",
       "question": "distribution-central-mutable-method",
@@ -294,7 +338,8 @@
       ],
       "superseded_by": [],
       "refined_by": [
-        "DEC-bootstrap-safety"
+        "DEC-bootstrap-safety",
+        "DEC-distribute-as-plugin"
       ],
       "governs": [],
       "depended_on_by": [],
@@ -552,6 +597,47 @@
       "depended_on_by": [],
       "cited_by": []
     },
+    "DEC-repo-is-its-own-marketplace": {
+      "title": "The Cruxton repo is its own single-plugin marketplace (source \"./\")",
+      "question": "repo-is-its-own-marketplace",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "The repo carries its own .claude-plugin/marketplace.json listing the single cruxton-decision-records plugin with source \"./\", so one repo is both the marketplace and the plugin — no separate marketplace repo.",
+      "confidence": "high",
+      "decided_on": "2026-08-29",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [
+        "DEC-distribute-as-plugin"
+      ],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        ".claude-plugin/marketplace.json"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "the bundle grows beyond one plugin and wants per-plugin subfolders under ./plugins/"
+        }
+      ],
+      "cluster": "DEC-bootstrap-safety",
+      "file": "reports/DEC-repo-is-its-own-marketplace.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
     "DEC-strict-validation": {
       "title": "The generator enforces the whole record contract, not just edges",
       "question": "strict-validation",
@@ -695,6 +781,7 @@
         "DEC-decision-record-identity",
         "DEC-decisions-md-presentation",
         "DEC-deterministic-artifacts",
+        "DEC-distribute-as-plugin",
         "DEC-distribution-central-mutable-method",
         "DEC-index-is-generated",
         "DEC-organizing-frame-pace-layering",
@@ -702,6 +789,7 @@
         "DEC-privacy-redaction",
         "DEC-record-id-scheme",
         "DEC-records-stay-put",
+        "DEC-repo-is-its-own-marketplace",
         "DEC-strict-validation",
         "DEC-why-has-three-layers",
         "DEC-why-record-decisions"
@@ -726,6 +814,9 @@
       "deterministic-artifacts": [
         "DEC-deterministic-artifacts"
       ],
+      "distribute-as-plugin": [
+        "DEC-distribute-as-plugin"
+      ],
       "distribution-central-mutable-method": [
         "DEC-distribution-central-mutable-method"
       ],
@@ -746,6 +837,9 @@
       ],
       "records-stay-put": [
         "DEC-records-stay-put"
+      ],
+      "repo-is-its-own-marketplace": [
+        "DEC-repo-is-its-own-marketplace"
       ],
       "strict-validation": [
         "DEC-strict-validation"
@@ -777,5 +871,5 @@
     "errors": [],
     "warnings": []
   },
-  "input_hash": "5e686c7f440d22b4"
+  "input_hash": "2c17665d84c73867"
 }

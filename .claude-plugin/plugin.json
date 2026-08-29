@@ -1,0 +1,10 @@
+{
+  "name": "cruxton-decision-records",
+  "description": "Install and drive Cruxton, a portable decision-records system: a durable, validated trail of what was decided, why, what was rejected, and the non-derivable human reasoning behind each call, with a generated, greppable index.",
+  "version": "1.0.0",
+  "author": { "name": "Pranav Gupta" },
+  "homepage": "https://github.com/interguption/cruxton",
+  "repository": "https://github.com/interguption/cruxton",
+  "license": "MIT",
+  "keywords": ["decision-records", "adr", "decision-log", "agents", "provenance", "pace-layering"]
+}

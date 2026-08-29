@@ -1,0 +1,11 @@
+{
+  "name": "cruxton",
+  "owner": { "name": "Pranav Gupta", "url": "https://github.com/interguption" },
+  "plugins": [
+    {
+      "name": "cruxton-decision-records",
+      "source": "./",
+      "description": "Portable decision-records system your whole agent stack obeys."
+    }
+  ]
+}
