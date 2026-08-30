@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cruxton social preview</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .frame { display: none; position: relative; width: 1280px; height: 640px; overflow: hidden; }
+    body[data-variant="strata"] .strata,
+    body[data-variant="ledger"] .ledger,
+    body[data-variant="crux"] .crux { display: block; }
+    .brand { display: flex; align-items: center; gap: 15px; font: 750 22px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .14em; }
+    .mark { position: relative; width: 42px; height: 34px; }
+    .mark i { position: absolute; left: 0; height: 8px; border-radius: 2px; transform: skewX(-18deg); }
+    .mark i:nth-child(1) { top: 0; width: 27px; left: 8px; }
+    .mark i:nth-child(2) { top: 13px; width: 36px; left: 3px; }
+    .mark i:nth-child(3) { top: 26px; width: 42px; }
+    h1 { margin: 0; letter-spacing: -.045em; }
+    p { margin: 0; }
+
+    /* Direction 1: decision strata */
+    .strata { color: #f4f1e8; background: #111a2b; }
+    .strata::before { content: ""; position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(#b8c8d8 1px, transparent 1px), linear-gradient(90deg, #b8c8d8 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(90deg, #000 0%, transparent 72%); }
+    .strata .top-rule { position: absolute; left: 64px; right: 64px; top: 61px; height: 1px; background: #56657a; }
+    .strata .brand { position: absolute; left: 64px; top: 28px; color: #dfe8ef; }
+    .strata .mark i { background: #e7a657; }
+    .strata .eyebrow { position: absolute; left: 64px; top: 125px; color: #e7a657; font: 700 16px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .11em; text-transform: uppercase; }
+    .strata h1 { position: absolute; left: 64px; top: 164px; width: 720px; font-size: 65px; line-height: .99; font-weight: 760; }
+    .strata .sub { position: absolute; left: 69px; top: 405px; width: 650px; color: #b9c7d5; font-size: 22px; line-height: 1.42; }
+    .strata .props { position: absolute; left: 64px; bottom: 45px; color: #dfe8ef; font: 650 15px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .04em; }
+    .strata .props span { color: #e7a657; padding: 0 10px; }
+    .strata .cards { position: absolute; right: 55px; top: 88px; width: 390px; height: 475px; }
+    .strata .card { position: absolute; width: 350px; min-height: 118px; padding: 23px 25px; background: #e9edf0; color: #172033; border: 2px solid #101827; box-shadow: 11px 12px 0 rgba(5, 10, 20, .43); transform: rotate(-2deg); }
+    .strata .card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: var(--accent); }
+    .strata .card.one { top: 0; left: 16px; --accent: #d9705b; }
+    .strata .card.two { top: 147px; left: 0; transform: rotate(1.2deg); --accent: #e7a657; }
+    .strata .card.three { top: 304px; left: 23px; transform: rotate(-.6deg); --accent: #65a487; }
+    .strata .label { color: #5d6878; font: 750 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+    .strata .card p { margin-top: 12px; font-size: 20px; line-height: 1.25; font-weight: 680; }
+    .strata .card.three p { color: #1f654f; }
+
+    /* Direction 2: annotated ledger */
+    .ledger { color: #15223a; background: #edf1f2; }
+    .ledger::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 39px, rgba(39, 66, 91, .1) 39px 40px); }
+    .ledger .rail { position: absolute; right: 0; top: 0; width: 335px; height: 640px; background: #244f67; }
+    .ledger .brand { position: absolute; left: 64px; top: 50px; color: #244f67; }
+    .ledger .mark i { background: #db674f; }
+    .ledger .note { position: absolute; right: 53px; top: 67px; width: 225px; color: #dce9eb; font: 650 15px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .ledger .note strong { display: block; color: #f5b14e; margin-bottom: 14px; letter-spacing: .12em; }
+    .ledger h1 { position: absolute; left: 64px; top: 145px; width: 790px; font-size: 70px; line-height: .98; }
+    .ledger h1 em { color: #db674f; font-style: normal; text-decoration: underline; text-decoration-thickness: 7px; text-underline-offset: 8px; }
+    .ledger .sub { position: absolute; left: 69px; bottom: 87px; width: 720px; color: #40536b; font-size: 21px; line-height: 1.4; }
+    .ledger .rail-line { position: absolute; right: 278px; top: 258px; width: 115px; height: 4px; background: #f5b14e; transform: rotate(-8deg); }
+    .ledger .rail-copy { position: absolute; right: 52px; top: 245px; width: 227px; color: #fff; }
+    .ledger .rail-copy b { font: 750 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .11em; color: #f5b14e; }
+    .ledger .rail-copy p { margin-top: 14px; font-size: 24px; line-height: 1.25; font-weight: 700; }
+
+    /* Direction 3: the human crux */
+    .crux { color: #eef2ed; background: #25382f; }
+    .crux::before { content: "WHY"; position: absolute; right: -35px; bottom: -84px; color: rgba(238, 242, 237, .045); font: 900 330px/.8 Arial, sans-serif; letter-spacing: -.08em; }
+    .crux .brand { position: absolute; left: 64px; top: 46px; }
+    .crux .mark i { background: #f0b45d; }
+    .crux .tag { position: absolute; left: 64px; top: 132px; padding: 9px 13px; color: #25382f; background: #f0b45d; font: 800 14px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
+    .crux h1 { position: absolute; left: 64px; top: 184px; width: 1020px; font-size: 69px; line-height: .99; }
+    .crux h1 span { color: #f0b45d; }
+    .crux .quote { position: absolute; left: 66px; bottom: 68px; width: 990px; padding-left: 24px; border-left: 5px solid #d46a53; color: #cbd6ce; font-size: 22px; line-height: 1.42; }
+    .crux .index { position: absolute; right: 55px; top: 45px; color: #91a99a; font: 650 14px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
+  </style>
+</head>
+<body>
+  <section class="frame strata" aria-label="Cruxton social preview, decision strata direction">
+    <div class="top-rule"></div>
+    <div class="brand"><span class="mark"><i></i><i></i><i></i></span>CRUXTON</div>
+    <div class="eyebrow">Git-native decision memory</div>
+    <h1>Stop agents from reopening settled decisions.</h1>
+    <p class="sub">The repo-native decision layer Claude Code, Codex, Cursor and other coding agents are required to consult.</p>
+    <div class="props">PLAIN MARKDOWN <span>·</span> ZERO DEPS <span>·</span> CI VALIDATED</div>
+    <div class="cards">
+      <article class="card one"><div class="label">REJECTED PATH</div><p>Move decision records into tidier folders</p></article>
+      <article class="card two"><div class="label">HUMAN CRUX</div><p>Immutable commits already cite those paths</p></article>
+      <article class="card three"><div class="label">AGENT RESPONSE</div><p>Decision found. Keeping records in place.</p></article>
+    </div>
+  </section>
+
+  <section class="frame ledger" aria-label="Cruxton social preview, annotated ledger direction">
+    <div class="brand"><span class="mark"><i></i><i></i><i></i></span>CRUXTON</div>
+    <h1>Git remembers what changed.<br>It doesn’t remember <em>why.</em></h1>
+    <p class="sub">Cruxton keeps the decisions, rejected paths, and human reasoning your coding agent cannot reconstruct.</p>
+    <div class="rail"></div><div class="rail-line"></div>
+    <div class="note"><strong>DECISION LAYER</strong>Plain Markdown<br>Zero dependencies<br>Cross-agent<br>CI validated</div>
+    <div class="rail-copy"><b>HUMAN_CRUX</b><p>The scarce reasoning no future model can derive from the code.</p></div>
+  </section>
+
+  <section class="frame crux" aria-label="Cruxton social preview, human crux direction">
+    <div class="brand"><span class="mark"><i></i><i></i><i></i></span>CRUXTON</div>
+    <div class="index">DECISION LAYER / 001</div>
+    <div class="tag">YOUR AGENT CAN RE-DERIVE THE CODE</div>
+    <h1>It cannot re-derive<br><span>why you said no.</span></h1>
+    <p class="quote">Cruxton gives coding agents a git-native trail of settled decisions, rejected alternatives, and the human reasoning they must read before deciding again.</p>
+  </section>
+
+  <script>
+    const variant = new URLSearchParams(location.search).get('variant') || 'strata';
+    document.body.dataset.variant = ['strata', 'ledger', 'crux'].includes(variant) ? variant : 'strata';
+  </script>
+</body>
+</html>

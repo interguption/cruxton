@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "record_count": 21,
+  "record_count": 22,
   "records": {
     "DEC-bootstrap-safety": {
       "title": "Bootstrap is non-destructive, atomic, and honest about failure",
@@ -643,6 +643,50 @@
       "depended_on_by": [],
       "cited_by": []
     },
+    "DEC-public-positioning": {
+      "title": "Cruxton is positioned as the repo-native decision layer agents must consult",
+      "question": "public-positioning",
+      "kind": "design",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "Cruxton's public surfaces lead with the pain of agents reopening settled decisions, position it as a narrow repo-native decision layer rather than generic agent memory, and make non-derivable human reasoning the central differentiator; proof precedes methodology.",
+      "confidence": "high",
+      "decided_on": "2026-08-30",
+      "human_input": true,
+      "human_crux": "PS chose narrowness as the brand: Cruxton should own the decision layer agents are required to consult, with the human reasoning they cannot reconstruct at its center, rather than compete as another system that remembers everything.",
+      "supersedes": [],
+      "refines": [],
+      "governed_by": [
+        "DEC-why-record-decisions"
+      ],
+      "depends_on": [
+        "DEC-why-has-three-layers"
+      ],
+      "cites": [],
+      "revisit": [
+        {
+          "class": "values",
+          "when": "users consistently understand or adopt Cruxton better under a broader category than the narrow decision-layer framing"
+        }
+      ],
+      "cluster": "DEC-decision-kinds",
+      "file": "reports/DEC-public-positioning.md",
+      "flags": [
+        "carries_human_judgment"
+      ],
+      "reversal_ritual": "Sweep the README hero and section order, demo story, GitHub description and topics, social preview, install framing, and launch copy together so every public surface makes the same promise.",
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
     "DEC-record-id-scheme": {
       "title": "Record ids are permanent slugs that name the question; area is separate metadata",
       "question": "record-id-scheme",
@@ -851,7 +895,9 @@
       "superseded_by": [],
       "refined_by": [],
       "governs": [],
-      "depended_on_by": [],
+      "depended_on_by": [
+        "DEC-public-positioning"
+      ],
       "cited_by": []
     },
     "DEC-why-record-decisions": {
@@ -884,14 +930,16 @@
           "when": "this is the method's premise"
         }
       ],
-      "cluster": null,
+      "cluster": "DEC-decision-kinds",
       "file": "reports/DEC-why-record-decisions.md",
       "flags": [
         "carries_human_judgment"
       ],
       "superseded_by": [],
       "refined_by": [],
-      "governs": [],
+      "governs": [
+        "DEC-public-positioning"
+      ],
       "depended_on_by": [],
       "cited_by": []
     }
@@ -920,6 +968,7 @@
         "DEC-organizing-frame-pace-layering",
         "DEC-placement-by-binding-only",
         "DEC-privacy-redaction",
+        "DEC-public-positioning",
         "DEC-record-id-scheme",
         "DEC-records-stay-put",
         "DEC-repo-is-its-own-marketplace",
@@ -974,6 +1023,9 @@
       "privacy-redaction": [
         "DEC-privacy-redaction"
       ],
+      "public-positioning": [
+        "DEC-public-positioning"
+      ],
       "record-id-scheme": [
         "DEC-record-id-scheme"
       ],
@@ -1004,6 +1056,7 @@
     "carries_human_judgment": [
       "DEC-distribution-central-mutable-method",
       "DEC-ledger-title-source",
+      "DEC-public-positioning",
       "DEC-records-stay-put",
       "DEC-strict-validation",
       "DEC-why-has-three-layers",
@@ -1014,5 +1067,5 @@
     "errors": [],
     "warnings": []
   },
-  "input_hash": "713d5e0c7a5e064a"
+  "input_hash": "b00828c19c31fbf8"
 }

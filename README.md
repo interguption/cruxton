@@ -2,19 +2,33 @@
 
 # 🪨 Cruxton
 
-**A portable decision-records system your whole agent stack obeys.**
+**Stop coding agents from reopening decisions you've already made.**
 
-A durable, validated trail of *what was decided, why, what was rejected, and the human reasoning a
-machine can't re-derive* — so agents stop drifting and humans can reconstruct every call.
+Cruxton keeps a git-native trail of *what you decided, what you rejected, and the human reasoning
+your agent can't reconstruct* — and teaches Claude Code, Codex, Cursor and other coding agents to
+consult it before deciding again.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-2E3A8F.svg)](LICENSE)
 [![validate](https://github.com/interguption/cruxton/actions/workflows/validate.yml/badge.svg)](https://github.com/interguption/cruxton/actions)
 ![method v1.0.0](https://img.shields.io/badge/method-v1.0.0-informational)
 ![zero deps](https://img.shields.io/badge/dependencies-none-brightgreen)
 
+**Plain Markdown · Zero dependencies · Works across agents · CI validated**
+
 **Works with** Claude Code · claude.ai · Codex · Cursor · Gemini CLI · Copilot · ChatGPT
 
 </div>
+
+![Terminal walkthrough: an agent proposes moving decision records, finds Cruxton's settled decision and human crux, then keeps the records in place](assets/demo/cruxton-demo.gif)
+
+<div align="center">
+<sub>An honest terminal walkthrough using this repo's real <code>DEC-records-stay-put</code> decision. <a href="assets/demo/cruxton-demo.tape">Reproduce the recording</a>.</sub>
+</div>
+
+**Cruxton is built with Cruxton.** This repository carries its own generated
+[`reports/DECISIONS.md`](reports/DECISIONS.md) ledger and the complete records behind it. Browse the
+trail to see why Cruxton itself works this way — including the human judgment no future agent could
+recover from the code alone.
 
 ---
 
@@ -26,7 +40,10 @@ week, wander down a path that already failed, and re-research a decision from sc
 **why**, what you rejected, or the instinct that actually drove the call. When the conversation ends,
 that reasoning is gone.
 
-## What Cruxton is
+## The decision layer
+
+Your coding agent doesn't need to remember everything. It needs to know what it is **not allowed to
+casually decide again**.
 
 A small, tool-agnostic method that lives in your repo as plain Markdown records plus **one
 dependency-free Python validator**. Each record captures what a machine *can* re-derive (the logic) and,
@@ -184,13 +201,6 @@ then per-area views, then queues (open stubs, contested calls, decisions carryin
 plain Markdown: read it directly, or hand it to an LLM and ask "why did we decide X?"
 
 ---
-
-## It records its own decisions
-
-Cruxton is built with Cruxton. This repo's [`reports/`](reports/) is the method's **own** decision
-ledger — every architectural call (why the index is generated, why records never move, why "why" has
-three layers) recorded in its own format. Read it to watch the method reason about itself; it's the
-loudest proof that it works.
 
 ## Upgrading
 
