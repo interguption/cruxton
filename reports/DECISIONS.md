@@ -4,43 +4,43 @@
 
 ## Principles (the constitution — read first)
 
-- [`DEC-organizing-frame-pace-layering`](reports/DEC-organizing-frame-pace-layering.md) **Knowledge is organised by pace layering — every fact at the layer matching its rate of change** · engineering/accepted · conf:high  
+- [`DEC-organizing-frame-pace-layering`](DEC-organizing-frame-pace-layering.md) **Knowledge is organised by pace layering — every fact at the layer matching its rate of change** · engineering/accepted · conf:high  
   Every fact lives at exactly one layer chosen by how fast it changes (purpose > principles > decisions > runbooks > code); faster layers cite slower ones and never restate them.
-- [`DEC-privacy-redaction`](reports/DEC-privacy-redaction.md) **Records never carry secrets, personal data, or verbatim private conversations** · engineering/accepted · conf:high  
+- [`DEC-privacy-redaction`](DEC-privacy-redaction.md) **Records never carry secrets, personal data, or verbatim private conversations** · engineering/accepted · conf:high  
   A record captures reasoning, never raw sensitive material: no secrets, credentials, keys, PII, health data, protected-class attributes, confidential third-party information, or verbatim private conversations. Sensitive human input is reduced to the decision-relevant gist; anything that needs sensitive material to understand is cited to an access-controlled location.
-- [`DEC-records-stay-put`](reports/DEC-records-stay-put.md) **Records never move and ids never change once anything cites them** · engineering/accepted · conf:high  
+- [`DEC-records-stay-put`](DEC-records-stay-put.md) **Records never move and ids never change once anything cites them** · engineering/accepted · conf:high  
   A record file stays at its path and keeps its id for life. Per-area and principle organisation are DERIVED views computed by the index, never physical folders that records are relocated into.  
   _human crux:_ PS's reasoning from a real event: commit messages are immutable and already cite reports/ paths, so relocating records to a decisions/ folder would strand those citations. Physical stability over tidy foldering — and it keeps the retrofit continuous, with no visible break in how decisions were recorded.
-- [`DEC-why-record-decisions`](reports/DEC-why-record-decisions.md) **Why a repo keeps a decision trail at all** · engineering/accepted · conf:high  
+- [`DEC-why-record-decisions`](DEC-why-record-decisions.md) **Why a repo keeps a decision trail at all** · engineering/accepted · conf:high  
   A repo records its non-trivial decisions as a durable trail so no one re-runs a settled thought process, an overturn can read the full prior reasoning, agents avoid dead ends and find under-explored paths, and the reasoning survives the conversation it was made in.  
   _human crux:_ PS's reasons for wanting this: stop re-litigating cleared decisions; be able to overturn only after reading the whole trail; let any agent avoid failed paths and pick up promising ones; stop re-researching in future projects and depend on internal resources over the web; and build specificity on contested topics by writing the reasoning down.
 
 ## Clusters (read these together)
 
 **DEC-bootstrap-safety**
-- [`DEC-bootstrap-safety`](reports/DEC-bootstrap-safety.md) **Bootstrap is non-destructive, atomic, and honest about failure** · engineering/accepted · conf:high
-- [`DEC-distribute-as-plugin`](reports/DEC-distribute-as-plugin.md) **Cruxton ships as a Claude Code plugin with the bundle under skills/** · engineering/accepted · conf:high
-- [`DEC-distribution-central-mutable-method`](reports/DEC-distribution-central-mutable-method.md) **The method is distributed as a thin skill over a central, mutable method repo** · engineering/accepted · conf:high  
+- [`DEC-bootstrap-safety`](DEC-bootstrap-safety.md) **Bootstrap is non-destructive, atomic, and honest about failure** · engineering/accepted · conf:high
+- [`DEC-distribute-as-plugin`](DEC-distribute-as-plugin.md) **Cruxton ships as a Claude Code plugin with the bundle under skills/** · engineering/accepted · conf:high
+- [`DEC-distribution-central-mutable-method`](DEC-distribution-central-mutable-method.md) **The method is distributed as a thin skill over a central, mutable method repo** · engineering/accepted · conf:high  
   _human crux:_ PS's proposal: don't cram everything into a giant skill file — point a thin skill at a fixed central location that holds the pre-written machinery, so setup is fast and improvements are made centrally and inherited by every future project.
-- [`DEC-openai-skill-install-path`](reports/DEC-openai-skill-install-path.md) **Codex installs Cruxton via the skill-installer from this repo's GitHub tree URL** · engineering/accepted · conf:high
-- [`DEC-repo-is-its-own-marketplace`](reports/DEC-repo-is-its-own-marketplace.md) **The Cruxton repo is its own single-plugin marketplace (source "./")** · engineering/accepted · conf:high
+- [`DEC-openai-skill-install-path`](DEC-openai-skill-install-path.md) **Codex installs Cruxton via the skill-installer from this repo's GitHub tree URL** · engineering/accepted · conf:high
+- [`DEC-repo-is-its-own-marketplace`](DEC-repo-is-its-own-marketplace.md) **The Cruxton repo is its own single-plugin marketplace (source "./")** · engineering/accepted · conf:high
 
 **DEC-decision-kinds**
-- [`DEC-decision-kinds`](reports/DEC-decision-kinds.md) **Every record has a kind — engineering, stance, or design — set by who adjudicates it** · engineering/accepted · conf:high
-- [`DEC-why-has-three-layers`](reports/DEC-why-has-three-layers.md) **A record's 'why' has three layers, and non-derivable human reasoning rides at the top** · engineering/accepted · conf:high  
+- [`DEC-decision-kinds`](DEC-decision-kinds.md) **Every record has a kind — engineering, stance, or design — set by who adjudicates it** · engineering/accepted · conf:high
+- [`DEC-why-has-three-layers`](DEC-why-has-three-layers.md) **A record's 'why' has three layers, and non-derivable human reasoning rides at the top** · engineering/accepted · conf:high  
   _human crux:_ PS's core addition: capture the human/subjective reasoning a machine cannot re-derive — instinct, a market read, an org constraint — and surface it high, so an agent won't confidently re-derive a decision whose real driver was human judgment. Machine logic is the re-derivable part; the human part is the scarce one.
 
 **DEC-decision-record-identity**
-- [`DEC-decision-record-identity`](reports/DEC-decision-record-identity.md) **An id is a permanent decision-event id; a separate question key groups a reversal chain** · engineering/accepted · conf:high
-- [`DEC-decisions-md-presentation`](reports/DEC-decisions-md-presentation.md) **The human ledger reads principles-first, decision and crux inline, live separated from superseded** · design/accepted · conf:high
-- [`DEC-deterministic-artifacts`](reports/DEC-deterministic-artifacts.md) **Generated artifacts are deterministic and CI-checkable** · engineering/accepted · conf:high
-- [`DEC-index-is-generated`](reports/DEC-index-is-generated.md) **The index is generated from outbound-only edges, never hand-maintained** · engineering/accepted · conf:high
-- [`DEC-ledger-title-source`](reports/DEC-ledger-title-source.md) **The DECISIONS.md title comes from a committed name file, never the checkout path** · engineering/accepted · conf:high  
+- [`DEC-decision-record-identity`](DEC-decision-record-identity.md) **An id is a permanent decision-event id; a separate question key groups a reversal chain** · engineering/accepted · conf:high
+- [`DEC-decisions-md-presentation`](DEC-decisions-md-presentation.md) **The human ledger reads principles-first, decision and crux inline, live separated from superseded** · design/accepted · conf:high
+- [`DEC-deterministic-artifacts`](DEC-deterministic-artifacts.md) **Generated artifacts are deterministic and CI-checkable** · engineering/accepted · conf:high
+- [`DEC-index-is-generated`](DEC-index-is-generated.md) **The index is generated from outbound-only edges, never hand-maintained** · engineering/accepted · conf:high
+- [`DEC-ledger-title-source`](DEC-ledger-title-source.md) **The DECISIONS.md title comes from a committed name file, never the checkout path** · engineering/accepted · conf:high  
   _human crux:_ PS chose to keep the project name in the ledger title via a committed config, rather than drop the name for a neutral title, when the two options were put side by side.
-- [`DEC-organizing-frame-pace-layering`](reports/DEC-organizing-frame-pace-layering.md) **Knowledge is organised by pace layering — every fact at the layer matching its rate of change** · engineering/accepted · conf:high
-- [`DEC-placement-by-binding-only`](reports/DEC-placement-by-binding-only.md) **The constitution is binding records only — cross-cutting-ness does not promote** · engineering/accepted · conf:high
-- [`DEC-record-id-scheme`](reports/DEC-record-id-scheme.md) **Record ids are permanent slugs that name the question; area is separate metadata** · engineering/accepted · conf:high
-- [`DEC-strict-validation`](reports/DEC-strict-validation.md) **The generator enforces the whole record contract, not just edges** · engineering/accepted · conf:high  
+- [`DEC-organizing-frame-pace-layering`](DEC-organizing-frame-pace-layering.md) **Knowledge is organised by pace layering — every fact at the layer matching its rate of change** · engineering/accepted · conf:high
+- [`DEC-placement-by-binding-only`](DEC-placement-by-binding-only.md) **The constitution is binding records only — cross-cutting-ness does not promote** · engineering/accepted · conf:high
+- [`DEC-record-id-scheme`](DEC-record-id-scheme.md) **Record ids are permanent slugs that name the question; area is separate metadata** · engineering/accepted · conf:high
+- [`DEC-strict-validation`](DEC-strict-validation.md) **The generator enforces the whole record contract, not just edges** · engineering/accepted · conf:high  
   _human crux:_ PS commissioned an external adversarial review before publishing and, given the findings, chose to harden Cruxton into a trustworthy v1.0.0 rather than ship a strong prototype as a preview.
 
 ## By area
@@ -49,26 +49,26 @@
 
 ## Carries human judgment (non-derivable — read before overturning)
 
-- [`DEC-distribution-central-mutable-method`](reports/DEC-distribution-central-mutable-method.md) **The method is distributed as a thin skill over a central, mutable method repo** · engineering/accepted · conf:high  
+- [`DEC-distribution-central-mutable-method`](DEC-distribution-central-mutable-method.md) **The method is distributed as a thin skill over a central, mutable method repo** · engineering/accepted · conf:high  
   The system is packaged as a thin skill whose bootstrap runs from a central method repo that carries the machinery, templates, and genesis ledger. Improvements are made once in the method repo and flow to future setups; the method versions itself so a repo can tell what it was scaffolded from.  
   _human crux:_ PS's proposal: don't cram everything into a giant skill file — point a thin skill at a fixed central location that holds the pre-written machinery, so setup is fast and improvements are made centrally and inherited by every future project.
-- [`DEC-ledger-title-source`](reports/DEC-ledger-title-source.md) **The DECISIONS.md title comes from a committed name file, never the checkout path** · engineering/accepted · conf:high  
+- [`DEC-ledger-title-source`](DEC-ledger-title-source.md) **The DECISIONS.md title comes from a committed name file, never the checkout path** · engineering/accepted · conf:high  
   The generated ledger title reads its project name from a committed .decision-records-name file (bootstrap seeds it with the repo folder name; a human may edit it), and falls back to a neutral 'Decisions (generated)' when absent — it is never derived from the live checkout directory name.  
   _human crux:_ PS chose to keep the project name in the ledger title via a committed config, rather than drop the name for a neutral title, when the two options were put side by side.
-- [`DEC-records-stay-put`](reports/DEC-records-stay-put.md) **Records never move and ids never change once anything cites them** · engineering/accepted · conf:high  
+- [`DEC-records-stay-put`](DEC-records-stay-put.md) **Records never move and ids never change once anything cites them** · engineering/accepted · conf:high  
   A record file stays at its path and keeps its id for life. Per-area and principle organisation are DERIVED views computed by the index, never physical folders that records are relocated into.  
   _human crux:_ PS's reasoning from a real event: commit messages are immutable and already cite reports/ paths, so relocating records to a decisions/ folder would strand those citations. Physical stability over tidy foldering — and it keeps the retrofit continuous, with no visible break in how decisions were recorded.
-- [`DEC-strict-validation`](reports/DEC-strict-validation.md) **The generator enforces the whole record contract, not just edges** · engineering/accepted · conf:high  
+- [`DEC-strict-validation`](DEC-strict-validation.md) **The generator enforces the whole record contract, not just edges** · engineering/accepted · conf:high  
   The generator validates every record against the full contract — required fields and types, enum values, filename==id, required body sections, human_input/human_crux consistency, kind-gated fields — surfaces malformed files instead of silently skipping them, and fails the build on any violation.  
   _human crux:_ PS commissioned an external adversarial review before publishing and, given the findings, chose to harden Cruxton into a trustworthy v1.0.0 rather than ship a strong prototype as a preview.
-- [`DEC-why-has-three-layers`](reports/DEC-why-has-three-layers.md) **A record's 'why' has three layers, and non-derivable human reasoning rides at the top** · engineering/accepted · conf:high  
+- [`DEC-why-has-three-layers`](DEC-why-has-three-layers.md) **A record's 'why' has three layers, and non-derivable human reasoning rides at the top** · engineering/accepted · conf:high  
   Reasoning is captured at three depths by how re-derivable it is: a one-line human_crux plus a human_input flag in the index (read every time); a Human reasoning body section (read on open); and a deep Reasoning provenance section tagging each material claim by source (read on demand). Provenance types: llm-expertise, internal-finding, external-research, provided-data, human-expertise, human-instinct, human-constraint.  
   _human crux:_ PS's core addition: capture the human/subjective reasoning a machine cannot re-derive — instinct, a market read, an org constraint — and surface it high, so an agent won't confidently re-derive a decision whose real driver was human judgment. Machine logic is the re-derivable part; the human part is the scarce one.
-- [`DEC-why-record-decisions`](reports/DEC-why-record-decisions.md) **Why a repo keeps a decision trail at all** · engineering/accepted · conf:high  
+- [`DEC-why-record-decisions`](DEC-why-record-decisions.md) **Why a repo keeps a decision trail at all** · engineering/accepted · conf:high  
   A repo records its non-trivial decisions as a durable trail so no one re-runs a settled thought process, an overturn can read the full prior reasoning, agents avoid dead ends and find under-explored paths, and the reasoning survives the conversation it was made in.  
   _human crux:_ PS's reasons for wanting this: stop re-litigating cleared decisions; be able to overturn only after reading the whole trail; let any agent avoid failed paths and pick up promising ones; stop re-researching in future projects and depend on internal resources over the web; and build specificity on contested topics by writing the reasoning down.
 
 ## Stances / contested (weigh the evidence before relying)
 
-- [`DEC-cross-tool-pointer`](reports/DEC-cross-tool-pointer.md) **Cruxton bets on AGENTS.md as the cross-tool agent-instruction convention** · stance/accepted · conf:moderate  
+- [`DEC-cross-tool-pointer`](DEC-cross-tool-pointer.md) **Cruxton bets on AGENTS.md as the cross-tool agent-instruction convention** · stance/accepted · conf:moderate  
   The bootstrap emits an AGENTS.md pointer alongside CLAUDE.md so that Codex, Cursor, Gemini CLI, Copilot, Windsurf and other agents obey the same spec — betting that AGENTS.md is the convergent cross-tool instruction convention.

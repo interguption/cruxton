@@ -377,6 +377,16 @@ def build_index(records, rev, cluster_of, superseded_by, hard, soft):
     return idx
 
 
+def ledger_href(file):
+    """A DEC record's href AS WRITTEN IN reports/DECISIONS.md. The `file` field is repo-root-
+    relative (e.g. 'reports/DEC-foo.md') — correct for JSON consumers, who resolve from the repo
+    root — but GitHub renders a relative link from the directory of the file it appears in, and
+    DECISIONS.md itself lives in reports/, so a 'reports/…' href would resolve to reports/reports/…
+    (404). Emit the path relative to reports/ instead: a bare 'DEC-foo.md', since the records are
+    siblings of the ledger."""
+    return os.path.relpath(REPO / file, REPORTS).replace(os.sep, "/")
+
+
 def write_human(idx):
     R = idx["records"]
     name = project_name()
@@ -396,7 +406,7 @@ def write_human(idx):
         mark = "" if e["live"] else " · _superseded_"
         crux = f"  \n  _human crux:_ {e['human_crux']}" if e["human_input"] and e["human_crux"] else ""
         dec = f"  \n  {e['decision']}" if show_decision and e["decision"] else ""
-        return (f"- [`{rid}`]({e['file']}) **{e['title']}** · {e['kind']}/{e['status']}"
+        return (f"- [`{rid}`]({ledger_href(e['file'])}) **{e['title']}** · {e['kind']}/{e['status']}"
                 f" · conf:{e['confidence']}{mark}{dec}{crux}")
 
     L.append("## Principles (the constitution — read first)\n")
