@@ -361,7 +361,7 @@
       "confidence": "high",
       "decided_on": "2026-08-29",
       "human_input": true,
-      "human_crux": "PS's proposal: don't cram everything into a giant skill file — point a thin skill at a fixed central location that holds the pre-written machinery, so setup is fast and improvements are made centrally and inherited by every future project.",
+      "human_crux": "Pranav's proposal: don't cram everything into a giant skill file — point a thin skill at a fixed central location that holds the pre-written machinery, so setup is fast and improvements are made centrally and inherited by every future project.",
       "supersedes": [],
       "refines": [],
       "governed_by": [],
@@ -451,7 +451,7 @@
       "confidence": "high",
       "decided_on": "2026-08-30",
       "human_input": true,
-      "human_crux": "PS chose to keep the project name in the ledger title via a committed config, rather than drop the name for a neutral title, when the two options were put side by side.",
+      "human_crux": "Pranav chose to keep the project name in the ledger title via a committed config, rather than drop the name for a neutral title, when the two options were put side by side.",
       "supersedes": [],
       "refines": [
         "DEC-deterministic-artifacts",
@@ -659,7 +659,7 @@
       "confidence": "high",
       "decided_on": "2026-08-30",
       "human_input": true,
-      "human_crux": "PS chose narrowness as the brand: Cruxton should own the decision layer agents are required to consult, with the human reasoning they cannot reconstruct at its center, rather than compete as another system that remembers everything.",
+      "human_crux": "Pranav chose narrowness as the brand: Cruxton should own the decision layer agents are required to consult, with the human reasoning they cannot reconstruct at its center, rather than compete as another system that remembers everything.",
       "supersedes": [],
       "refines": [],
       "governed_by": [
@@ -746,7 +746,7 @@
       "confidence": "high",
       "decided_on": "2026-08-29",
       "human_input": true,
-      "human_crux": "PS's reasoning from a real event: commit messages are immutable and already cite reports/ paths, so relocating records to a decisions/ folder would strand those citations. Physical stability over tidy foldering — and it keeps the retrofit continuous, with no visible break in how decisions were recorded.",
+      "human_crux": "Pranav's reasoning from a real event: commit messages are immutable and already cite reports/ paths, so relocating records to a decisions/ folder would strand those citations. Physical stability over tidy foldering — and it keeps the retrofit continuous, with no visible break in how decisions were recorded.",
       "supersedes": [],
       "refines": [],
       "governed_by": [],
@@ -828,7 +828,7 @@
       "confidence": "high",
       "decided_on": "2026-08-29",
       "human_input": true,
-      "human_crux": "PS commissioned an external adversarial review before publishing and, given the findings, chose to harden Cruxton into a trustworthy v1.0.0 rather than ship a strong prototype as a preview.",
+      "human_crux": "Pranav commissioned an external adversarial review before publishing and, given the findings, chose to harden Cruxton into a trustworthy v1.0.0 rather than ship a strong prototype as a preview.",
       "supersedes": [],
       "refines": [
         "DEC-index-is-generated"
@@ -871,7 +871,7 @@
       "confidence": "high",
       "decided_on": "2026-08-29",
       "human_input": true,
-      "human_crux": "PS's core addition: capture the human/subjective reasoning a machine cannot re-derive — instinct, a market read, an org constraint — and surface it high, so an agent won't confidently re-derive a decision whose real driver was human judgment. Machine logic is the re-derivable part; the human part is the scarce one.",
+      "human_crux": "Pranav's core addition: capture the human/subjective reasoning a machine cannot re-derive — instinct, a market read, an org constraint — and surface it high, so an agent won't confidently re-derive a decision whose real driver was human judgment. Machine logic is the re-derivable part; the human part is the scarce one.",
       "supersedes": [],
       "refines": [
         "DEC-decision-kinds"
@@ -916,7 +916,7 @@
       "confidence": "high",
       "decided_on": "2026-08-29",
       "human_input": true,
-      "human_crux": "PS's reasons for wanting this: stop re-litigating cleared decisions; be able to overturn only after reading the whole trail; let any agent avoid failed paths and pick up promising ones; stop re-researching in future projects and depend on internal resources over the web; and build specificity on contested topics by writing the reasoning down.",
+      "human_crux": "Pranav's reasons for wanting this: stop re-litigating cleared decisions; be able to overturn only after reading the whole trail; let any agent avoid failed paths and pick up promising ones; stop re-researching in future projects and depend on internal resources over the web; and build specificity on contested topics by writing the reasoning down.",
       "supersedes": [],
       "refines": [],
       "governed_by": [],
@@ -1067,5 +1067,5 @@
     "errors": [],
     "warnings": []
   },
-  "input_hash": "b00828c19c31fbf8"
+  "input_hash": "341b7f56e709e501"
 }
