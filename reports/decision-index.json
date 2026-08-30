@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "record_count": 20,
+  "record_count": 21,
   "records": {
     "DEC-bootstrap-safety": {
       "title": "Bootstrap is non-destructive, atomic, and honest about failure",
@@ -250,7 +250,9 @@
       "flags": [],
       "reversal_ritual": "Any change to the ledger's presentation must be re-rendered and swept across every generated view — DECISIONS.md, the per-area lists, and the queues — so the human and machine reads never diverge.",
       "superseded_by": [],
-      "refined_by": [],
+      "refined_by": [
+        "DEC-ledger-title-source"
+      ],
       "governs": [],
       "depended_on_by": [],
       "cited_by": []
@@ -291,7 +293,9 @@
       "file": "reports/DEC-deterministic-artifacts.md",
       "flags": [],
       "superseded_by": [],
-      "refined_by": [],
+      "refined_by": [
+        "DEC-ledger-title-source"
+      ],
       "governs": [],
       "depended_on_by": [],
       "cited_by": []
@@ -428,6 +432,51 @@
       "governs": [
         "DEC-decisions-md-presentation"
       ],
+      "depended_on_by": [],
+      "cited_by": []
+    },
+    "DEC-ledger-title-source": {
+      "title": "The DECISIONS.md title comes from a committed name file, never the checkout path",
+      "question": "ledger-title-source",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "The generated ledger title reads its project name from a committed .decision-records-name file (bootstrap seeds it with the repo folder name; a human may edit it), and falls back to a neutral 'Decisions (generated)' when absent — it is never derived from the live checkout directory name.",
+      "confidence": "high",
+      "decided_on": "2026-08-30",
+      "human_input": true,
+      "human_crux": "PS chose to keep the project name in the ledger title via a committed config, rather than drop the name for a neutral title, when the two options were put side by side.",
+      "supersedes": [],
+      "refines": [
+        "DEC-deterministic-artifacts",
+        "DEC-decisions-md-presentation"
+      ],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        "scripts/decision_index.py project_name()/write_human",
+        "skills/cruxton-decision-records/bootstrap.py (.decision-records-name step)"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "a deterministic project-name source better than a committed dotfile emerges"
+        }
+      ],
+      "cluster": "DEC-decision-record-identity",
+      "file": "reports/DEC-ledger-title-source.md",
+      "flags": [
+        "carries_human_judgment"
+      ],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
       "depended_on_by": [],
       "cited_by": []
     },
@@ -866,6 +915,7 @@
         "DEC-distribute-as-plugin",
         "DEC-distribution-central-mutable-method",
         "DEC-index-is-generated",
+        "DEC-ledger-title-source",
         "DEC-openai-skill-install-path",
         "DEC-organizing-frame-pace-layering",
         "DEC-placement-by-binding-only",
@@ -909,6 +959,9 @@
       "index-is-generated": [
         "DEC-index-is-generated"
       ],
+      "ledger-title-source": [
+        "DEC-ledger-title-source"
+      ],
       "openai-skill-install-path": [
         "DEC-openai-skill-install-path"
       ],
@@ -950,6 +1003,7 @@
     "superseded": [],
     "carries_human_judgment": [
       "DEC-distribution-central-mutable-method",
+      "DEC-ledger-title-source",
       "DEC-records-stay-put",
       "DEC-strict-validation",
       "DEC-why-has-three-layers",
@@ -960,5 +1014,5 @@
     "errors": [],
     "warnings": []
   },
-  "input_hash": "36dc97f8976a712b"
+  "input_hash": "713d5e0c7a5e064a"
 }

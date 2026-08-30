@@ -19,8 +19,9 @@ Hardening in this release:
 - **Non-destructive, honest bootstrap** — writes only files it owns, refuses foreign collisions,
   atomic writes, `--dry-run` / `--force` / `--upgrade-spec`, and a self-check that reports success
   only when the generator exits 0; honest version stamping.
-- **Deterministic artifacts** — no wall-clock in generated files (identity is the input hash) and a
-  `--check` mode for CI.
+- **Deterministic artifacts** — no wall-clock in generated files (identity is the input hash), the
+  ledger title read from a committed `.decision-records-name` (never the checkout path, so it is
+  stable across machines and CI), and a `--check` mode for CI.
 - **Cross-tool** — the bootstrap emits an `AGENTS.md` pointer alongside `CLAUDE.md`.
 - **Privacy** — a binding never-record rule for secrets, personal data, and private conversations.
 - Dogfooded stance and design records; MIT licensed; CI validates on every push.

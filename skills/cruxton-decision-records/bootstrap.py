@@ -114,6 +114,15 @@ def main():
         else:
             actions.append("skip  project-instructions.md (pointer present)")
 
+    # 5.5 Project name for the ledger title — write once (default: the repo folder name), never
+    #     clobber. Keeps the DECISIONS.md title deterministic across checkouts (it is read from this
+    #     committed file, not the live path). Edit .decision-records-name to rename the ledger.
+    name_file = target / ".decision-records-name"
+    if not name_file.exists():
+        write(".decision-records-name", target.name + "\n")
+    else:
+        actions.append("skip  .decision-records-name (present)")
+
     # 6. Version stamp — reflects the spec actually present.
     write(".decision-records-version", stamp_version + "\n")
     actions[-1] = f"stamp .decision-records-version = {stamp_version}"
