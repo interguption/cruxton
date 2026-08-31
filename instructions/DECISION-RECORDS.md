@@ -1,4 +1,4 @@
-<!-- cruxton-method-version: 1.0.0 -->
+<!-- cruxton-method-version: 1.0.1 -->
 # Decision Records
 
 

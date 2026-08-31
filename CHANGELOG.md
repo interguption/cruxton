@@ -1,5 +1,15 @@
 # Changelog — Cruxton (decision-records method)
 
+## 1.0.1 — 2026-08-31
+Patch release.
+
+- **Fixed** — the generated `reports/DECISIONS.md` linked to records as `reports/DEC-*.md`, but
+  because the ledger itself lives inside `reports/`, GitHub resolved those to
+  `reports/reports/DEC-*.md` (404), breaking the self-hosted decision trail. The generator now emits
+  sibling-relative links (`DEC-*.md`); the JSON index keeps repo-root paths for programmatic
+  consumers. Fixed in both the live generator and the bootstrap-distributed template.
+- **Docs** — README reframed around settled decision memory; record attribution corrected.
+
 ## 1.0.0 — 2026-08-29
 First public release. Extracted from the Steelyard reference implementation, then hardened for
 public use following an external adversarial readiness review.

@@ -10,7 +10,7 @@ consult it before deciding again.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-2E3A8F.svg)](LICENSE)
 [![validate](https://github.com/interguption/cruxton/actions/workflows/validate.yml/badge.svg)](https://github.com/interguption/cruxton/actions)
-![method v1.0.0](https://img.shields.io/badge/method-v1.0.0-informational)
+![method v1.0.1](https://img.shields.io/badge/method-v1.0.1-informational)
 ![zero deps](https://img.shields.io/badge/dependencies-none-brightgreen)
 
 **Plain Markdown · Zero dependencies · Works across agents · CI validated**
