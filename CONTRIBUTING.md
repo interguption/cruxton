@@ -17,9 +17,10 @@ method into a single project — improve it here.
    The generator is dependency-free (bare `python3`). CI runs `--check` on every push.
 
 ## Versioning
-The method versions itself (`METHOD-VERSION`, `CHANGELOG.md`, and the `cruxton-method-version`
-marker in the spec). Bump the version when the method's behavior or contract changes, and note it in
-`CHANGELOG.md`. Repos that already use Cruxton upgrade by re-running the bootstrap
+The method versions itself. Bump the version when the method's behavior or contract changes — the
+version is stamped in several places that must move together, and cutting the GitHub Release is a
+deliberate step (pushing to `main` does not advance it). The full runbook is
+[`RELEASING.md`](RELEASING.md). Repos that already use Cruxton upgrade by re-running the bootstrap
 (`--upgrade-spec` to migrate the spec, which backs up the old one).
 
 ## Ground rules
