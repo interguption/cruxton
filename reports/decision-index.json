@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "record_count": 22,
+  "record_count": 23,
   "records": {
     "DEC-bootstrap-safety": {
       "title": "Bootstrap is non-destructive, atomic, and honest about failure",
@@ -643,6 +643,47 @@
       "depended_on_by": [],
       "cited_by": []
     },
+    "DEC-public-metadata-verification": {
+      "title": "Public metadata is complete only after fresh crawler and end-to-end unfurl verification",
+      "question": "public-metadata-verification",
+      "kind": "engineering",
+      "status": "accepted",
+      "effective_status": "accepted",
+      "live": true,
+      "binding": false,
+      "placement": "area",
+      "areas": [
+        "method"
+      ],
+      "decision": "A public metadata change is not complete when its settings/API value changes; completion requires the anonymous page metadata, referenced asset response, and a fresh destination unfurl to agree, with cache-blocked destinations reported as pending rather than successful.",
+      "confidence": "high",
+      "decided_on": "2026-08-31",
+      "human_input": false,
+      "human_crux": "",
+      "supersedes": [],
+      "refines": [
+        "DEC-public-positioning"
+      ],
+      "governed_by": [],
+      "depends_on": [],
+      "cites": [
+        "assets/github-social-preview.png"
+      ],
+      "revisit": [
+        {
+          "class": "internal",
+          "when": "public metadata platforms provide a deterministic end-to-end status or cache-invalidation contract that makes one of these checks redundant"
+        }
+      ],
+      "cluster": "DEC-decision-kinds",
+      "file": "reports/DEC-public-metadata-verification.md",
+      "flags": [],
+      "superseded_by": [],
+      "refined_by": [],
+      "governs": [],
+      "depended_on_by": [],
+      "cited_by": []
+    },
     "DEC-public-positioning": {
       "title": "Cruxton is positioned as the repo-native decision layer agents must consult",
       "question": "public-positioning",
@@ -682,7 +723,9 @@
       ],
       "reversal_ritual": "Sweep the README hero and section order, demo story, GitHub description and topics, social preview, install framing, and launch copy together so every public surface makes the same promise.",
       "superseded_by": [],
-      "refined_by": [],
+      "refined_by": [
+        "DEC-public-metadata-verification"
+      ],
       "governs": [],
       "depended_on_by": [],
       "cited_by": []
@@ -968,6 +1011,7 @@
         "DEC-organizing-frame-pace-layering",
         "DEC-placement-by-binding-only",
         "DEC-privacy-redaction",
+        "DEC-public-metadata-verification",
         "DEC-public-positioning",
         "DEC-record-id-scheme",
         "DEC-records-stay-put",
@@ -1023,6 +1067,9 @@
       "privacy-redaction": [
         "DEC-privacy-redaction"
       ],
+      "public-metadata-verification": [
+        "DEC-public-metadata-verification"
+      ],
       "public-positioning": [
         "DEC-public-positioning"
       ],
@@ -1067,5 +1114,5 @@
     "errors": [],
     "warnings": []
   },
-  "input_hash": "341b7f56e709e501"
+  "input_hash": "76ac4b92cc8a7093"
 }
